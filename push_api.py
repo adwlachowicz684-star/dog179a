@@ -17966,6 +17966,7 @@ strict=not (init or reset))
     #
     # 这里处在「_pending_dels 已算完」与「建 tree」之间，是最后一个
     # 还能让删除跟本次推送一起生效的位置。
+    print('[DBG] files=%s dels_all=%s disabled=%s' % (len(files) if files else 0, _dels_all, _deletes_disabled()))
     if files and _dels_all and _deletes_disabled():
         if _offer_delete_now(_dels_all, dry):
             _pending_dels = _dels_all
